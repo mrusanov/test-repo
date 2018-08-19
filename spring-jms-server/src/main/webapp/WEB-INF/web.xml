@@ -1,0 +1,29 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_3_0.dtd" >
+
+<web-app>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/spring-jms-config.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>NotificationsServlet</servlet-name>
+		<servlet-class>com.mrusanov.spring.jms.NotificationsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NotificationsServlet</servlet-name>
+		<url-pattern>/pushservlet</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>pushNotification.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
